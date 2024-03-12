@@ -114,33 +114,6 @@ if (smsTimer) {
     }
 }
 
-// Таймер на странице верификации
-
-const smsTimer = document.getElementById('sms-timer');
-const timerBlock = document.querySelector('.timer-block');
-let timerCount = 59;
-let timerInterval;
-
-function updateTimer() {
-    if (timerCount >= 0) {
-        smsTimer.textContent = timerCount < 10 ? '0' + timerCount : timerCount;
-        timerCount--;
-    } else {
-        timerBlock.style.display = 'none';
-        clearInterval(timerInterval);
-    }
-}
-
-if (smsTimer) {
-    timerInterval = setInterval(updateTimer, 1000);
-
-    function sendSms() {
-        timerCount = 59;
-        timerInterval = setInterval(updateTimer, 1000);
-        timerBlock.style.display = 'inline';
-    }
-}
-
 
 // Звезды рейтнга (оценка сервиса)
 const ratingItems = document.querySelectorAll('.rating__item');

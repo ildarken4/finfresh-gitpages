@@ -35,8 +35,10 @@
                     <input type="text" class="verify-input text-center" placeholder="- - - - -">
                 </div>
                 <div class="mb-20 text-500">Введите код подтверждения, полученный по SMS</div>
-                <div class="mb-20 text-500"> <span class="text-blue text-600">Запросить код повторно</span>&nbsp;можно
-                    через: 0:59 секунд</div>
+                <div class="mb-20 text-500"> <span class="text-blue text-600 js-sms-send" onclick="sendSms()">Запросить код повторно</span> 
+                    <span
+                    class="timer-block">можно через: 0:<span id="sms-timer">59</span>&nbsp;секунд</span>
+                </div>
                 <div class="text-12 text-500">Ввод кода подтверждения – аналог собственноручной подписи, в соответствии
                     с <a href="#" class="text-blue underlined">Соглашением об использовании АСП</a> 
                 </div>

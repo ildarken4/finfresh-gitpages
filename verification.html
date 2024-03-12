@@ -14,12 +14,12 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
   <link rel="manifest" href="/images/favicon/site.webmanifest"> -->
         <link rel="stylesheet" href="./css/styles.css" />
-        <title>Контактная информация</title>
+        <title>Контактная информация - SMS-верификация</title>
     </head>
     
     <body>
         <div class="full-screen d-flex justify-content-center align-items-center">
-            <div class="verification-card bg-lightgrey p-40 text-center">
+            <div class="verification-card custom-column bg-lightgrey p-40 text-center">
                 <div class="btn-back text-green d-flex align-items-center justify-content-center mb-20">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
                     class="mr-4">
@@ -35,8 +35,10 @@
                     <input type="text" class="verify-input text-center" placeholder="- - - - -">
                 </div>
                 <div class="mb-20 text-500">Введите код подтверждения, полученный по SMS</div>
-                <div class="mb-20 text-500"> <span class="text-blue text-600">Запросить код повторно</span>&nbsp;можно
-                    через: 0:59 секунд</div>
+                <div class="mb-20 text-500"> <span class="text-blue text-600 js-sms-send" onclick="sendSms()">Запросить код повторно</span> 
+                    <span
+                    class="timer-block">можно через: 0:<span id="sms-timer">59</span>&nbsp;секунд</span>
+                </div>
                 <div class="text-12 text-500">Ввод кода подтверждения – аналог собственноручной подписи, в соответствии
                     с <a href="#" class="text-blue underlined">Соглашением об использовании АСП</a> 
                 </div>

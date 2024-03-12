@@ -96,12 +96,12 @@
         </header>
         <div class="wrapper">
             <div class="text-center">
-                <div class="btn mt-140 mb-140" onclick="openModal()">Открыть PopUp</div>
+                <div class="btn mt-140 mb-140" onclick="openModal('question-modal')">Открыть PopUp</div>
             </div>
             <div class="container mt-40">
                 <div class="row justify-content-center">
                     <!-- Шаги -->
-                    <div class="steps mb-30">
+                    <div class="steps custom-column mb-30">
                         <div class="d-flex align-items-center justify-content-center mb-30">
                             <div class="step">
                                 <div class="step__number bg-lightgrey text-dark-grey active">1</div>
@@ -126,7 +126,7 @@
                         </div>
                     </div>
                     <!-- Блок регистрации -->
-                    <div class="registration-card bg-lightgrey mb-80">
+                    <div class="registration-card custom-column bg-lightgrey mb-80">
                         <div class="text-center mb-20">
                              <h4>Укажите ваши данные</h4>
 
@@ -165,11 +165,14 @@
                                 <div class="form-input">
                                     <label for="reg-male" class="text-14 mr-10">
                                         <input type="radio" id="reg-male" name="reg-gender" required value="male"> <span class="custom-radio"></span>
-Мужской</label>
-                                    <label for="reg-female"
-                                    class="text-14">
+ <span class="mt-4">Мужской</span>
+
+                                    </label>
+                                    <label for="reg-female" class="text-14">
                                         <input type="radio" id="reg-female" name="reg-gender" required value="female"> <span class="custom-radio"></span>
-Женский</label>
+ <span class="mt-4">Женский</span>
+
+                                    </label>
                                 </div>
                                 <div class="form-input required mb-32">
                                     <input type="tel" id="reg-phone" placeholder="+7" required>
@@ -177,9 +180,9 @@
                                 <div class="form-input mb-32">
                                     <label for="reg-agree-terms">
                                         <input type="checkbox" id="reg-agree-terms" required> <span class="custom-checkbox"></span>
-Я ознакомлен и согласен с <a href="#"
-                                        class="text-green text-600">Правилами и условиями</a>
-
+Я ознакомлен и согласен с&nbsp;
+                                        <a
+                                        href="#" class="text-green text-600">Правилами и условиями</a>
                                     </label>
                                 </div>
                                 <div class="form-btns d-flex flex-column align-items-center">
@@ -192,8 +195,8 @@
                 </div>
             </div>
             <!-- Модальное окно -->
-            <div class="modal" id="modal">
-                <div class="popup">
+            <div class="modal" id="question-modal">
+                <div class="popup popup-small">
                     <div class="btn-back text-blue d-flex align-items-center justify-content-center mb-16"
                     onclick="closeModal()">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -205,39 +208,39 @@
                      <h4 class="text-center mb-16">Какую сумму хотите одолжить?</h4>
 
                     <label for="popup-1" class="mb-10">
-                        <input type="checkbox" id="popup-1" required> <span class="custom-checkbox"></span>
+                        <input type="checkbox" id="popup-1"> <span class="custom-checkbox"></span>
 Политика конфиденциальности</label>
                     <label
                     for="popup-2" class="mb-10">
-                        <input type="checkbox" id="popup-2" required> <span class="custom-checkbox"></span>
+                        <input type="checkbox" id="popup-2"> <span class="custom-checkbox"></span>
 Согласие на обработку персональных
                         данных заемщика</label>
                         <label for="popup-3" class="mb-10">
-                            <input type="checkbox" id="popup-3" required> <span class="custom-checkbox"></span>
+                            <input type="checkbox" id="popup-3"> <span class="custom-checkbox"></span>
 Согласие на получение КИ</label>
                         <label
                         for="popup-4" class="mb-10">
-                            <input type="checkbox" id="popup-4" required> <span class="custom-checkbox"></span>
+                            <input type="checkbox" id="popup-4"> <span class="custom-checkbox"></span>
 Информация об условиях предоставления,
                             использования и возврата</label>
                             <label for="popup-5" class="mb-10">
-                                <input type="checkbox" id="popup-5" required> <span class="custom-checkbox"></span>
+                                <input type="checkbox" id="popup-5"> <span class="custom-checkbox"></span>
 Общие условия договора потребительского
                                 займа</label>
                             <label for="popup-6" class="mb-10">
-                                <input type="checkbox" id="popup-6" required> <span class="custom-checkbox"></span>
+                                <input type="checkbox" id="popup-6"> <span class="custom-checkbox"></span>
 Правила предоставления займов</label>
                             <label
                             for="popup-7" class="mb-10">
-                                <input type="checkbox" id="popup-7" required> <span class="custom-checkbox"></span>
+                                <input type="checkbox" id="popup-7"> <span class="custom-checkbox"></span>
 Соглашение об использовании АСП</label>
                                 <label
                                 for="popup-8" class="mb-10">
-                                    <input type="checkbox" id="popup-8" required> <span class="custom-checkbox"></span>
+                                    <input type="checkbox" id="popup-8"> <span class="custom-checkbox"></span>
 Заявление на обработку персональных
                                     данных «Millenial Group”</label>
                                     <label for="popup-9" class="mt-16">
-                                        <input type="checkbox" id="popup-9" required> <span class="custom-checkbox"></span>
+                                        <input type="checkbox" id="popup-9"> <span class="custom-checkbox"></span>
  <a href="#" class="text-green text-600">Согласие на получение рекламы</a>
 
                                     </label>

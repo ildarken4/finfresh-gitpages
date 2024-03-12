@@ -1,10 +1,12 @@
 // Модальное окно
-let modal = document.getElementById("modal");
+const modals = document.querySelectorAll('.modal');
 const popup = document.querySelector('.popup');
+let modalName;
 let scrollPosition;
 
 // Открыть модальное окно
-function openModal() {
+function openModal(modalName) {
+    let modal = document.getElementById(modalName);
     modal.classList.add("active");
     document.body.style.overflow = "hidden";
     // Клик вне .popup
@@ -14,13 +16,30 @@ function openModal() {
         }
     });
 }
-// Закрыть модальное окно
-function closeModal() {
-    modal.classList.remove("active");
-    document.body.style.overflow = "auto";
+
+// Переключить модальное окно
+let modal1, modal2;
+function changeModal(modal1, modal2) {
+    let openingModal = document.getElementById(modal2);
+    let closingModal = document.getElementById(modal1);
+    openingModal.classList.add("active");
+    closingModal.classList.remove("active");
+    // Клик вне .popup
+    document.addEventListener('mouseup', function (e) {
+        if (!popup.contains(e.target)) {
+            closeModal()
+        }
+    });
 }
 
-
+// Закрыть модальное окно
+function closeModal() {
+    
+    modals.forEach(function(item) {
+        item.classList.remove("active");
+    })
+    document.body.style.overflow = "auto";
+}
 
 // Input маски
 let phoneInputs = document.querySelectorAll('input[type="tel"]');
@@ -67,3 +86,83 @@ if (incomeInput) {
         digits: 0
     }).mask(incomeInput);
 }
+
+// Таймер на странице верификации
+
+const smsTimer = document.getElementById('sms-timer');
+const timerBlock = document.querySelector('.timer-block');
+let timerCount = 59;
+let timerInterval;
+
+function updateTimer() {
+    if (timerCount >= 0) {
+        smsTimer.textContent = timerCount < 10 ? '0' + timerCount : timerCount;
+        timerCount--;
+    } else {
+        timerBlock.style.display = 'none';
+        clearInterval(timerInterval);
+    }
+}
+
+if (smsTimer) {
+    timerInterval = setInterval(updateTimer, 1000);
+
+    function sendSms() {
+        timerCount = 59;
+        timerInterval = setInterval(updateTimer, 1000);
+        timerBlock.style.display = 'inline';
+    }
+}
+
+
+// Звезды рейтнга (оценка сервиса)
+const ratingItems = document.querySelectorAll('.rating__item');
+const sendRatingBtn = document.getElementById('send-rating');
+let lastActiveIndex = -1;
+
+ratingItems.forEach(function(item, index) {
+    item.addEventListener('mouseenter', function() {
+        for (let i = 0; i <= index; i++) {
+            ratingItems[i].classList.add('active');
+        }
+        
+    });
+
+    item.addEventListener('mouseleave', function() {
+        ratingItems.forEach(function(item) {
+            item.classList.remove('active');
+        });
+        if (lastActiveIndex !== -1) {
+            for (let i = 0; i <= lastActiveIndex; i++) {
+                ratingItems[i].classList.add('active');
+            }
+        }
+    });
+
+    item.addEventListener('click', function() {
+        lastActiveIndex = index;
+        sendRatingBtn.classList.remove('btn-disabled');
+        ratingItems.forEach(function(item) {
+            item.classList.remove('active');
+        });
+        for (let i = 0; i <= index; i++) {
+            ratingItems[i].classList.add('active');
+        }
+    });
+});
+
+
+// Чаевые
+
+const tipsItems = document.querySelectorAll('.tips__item');
+
+tipsItems.forEach(function(tip) {
+    tip.addEventListener('click', function() {
+        tipsItems.forEach(function(tip) {
+            tip.classList.remove('active');
+        });
+
+        tip.classList.add('active');
+
+    });
+});

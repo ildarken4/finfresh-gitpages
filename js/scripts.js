@@ -118,6 +118,8 @@ if (smsTimer) {
 // Звезды рейтнга (оценка сервиса)
 const ratingItems = document.querySelectorAll('.rating__item');
 const sendRatingBtn = document.getElementById('send-rating');
+let rating = 0;
+let tipsValue = 0;
 let lastActiveIndex = -1;
 
 ratingItems.forEach(function(item, index) {
@@ -141,6 +143,7 @@ ratingItems.forEach(function(item, index) {
 
     item.addEventListener('click', function() {
         lastActiveIndex = index;
+        rating = item.getAttribute("data-rate");
         sendRatingBtn.classList.remove('btn-disabled');
         ratingItems.forEach(function(item) {
             item.classList.remove('active');
@@ -156,13 +159,124 @@ ratingItems.forEach(function(item, index) {
 
 const tipsItems = document.querySelectorAll('.tips__item');
 
-tipsItems.forEach(function(tip) {
-    tip.addEventListener('click', function() {
-        tipsItems.forEach(function(tip) {
-            tip.classList.remove('active');
+if(tipsItems) {
+    tipsItems.forEach(function(tip) {
+        tip.addEventListener('click', function() {
+            tipsItems.forEach(function(tip) {
+                tip.classList.remove('active');
+            });
+            if (!tip.classList.contains("checked")) {
+                tip.classList.add('active','checked');
+                tipsValue = tip.getAttribute('data-tip');
+            } else {
+                tip.classList.remove('active','checked');
+                tipsValue = 0;
+            }
+        });
+    });
+}
+
+// Вывод значения оценки и чаевых (просто в консоль)
+if (sendRatingBtn) {
+    sendRatingBtn.addEventListener('click', function () {
+        console.log('rating: ', rating);
+        console.log('tipsValue: ', tipsValue);
+    })
+}
+
+
+// Для input type=range
+for (let e of document.querySelectorAll('input[type="range"].slider-progress')) {
+    e.style.setProperty('--value', e.value);
+    e.style.setProperty('--min', e.min == '' ? '0' : e.min);
+    e.style.setProperty('--max', e.max == '' ? '100' : e.max);
+    e.addEventListener('input', () => e.style.setProperty('--value', e.value));
+}
+
+// Ползунок - выбор суммы
+function updateSum() {
+    let inp = document.getElementById("sum-input");
+    let out = document.getElementById("sum-output");
+    let sumResults = document.querySelectorAll('.result-sum');
+    let formattedValue = parseFloat(inp.value).toLocaleString('ru-RU');
+    out.textContent = formattedValue + " ₽";
+    sumResults.forEach(function (sumResult) {
+        sumResult.textContent = formattedValue + " ₽";
+    })
+    out.style.left = (inp.value - inp.min) / (inp.max - inp.min) * 100 + "%";
+}
+
+document.getElementById("sum-input").addEventListener('input', updateSum);
+updateSum();
+
+// Ползунок - выбор суммы
+function updateTerm() {
+    let inp = document.getElementById("term-input");
+    let out = document.getElementById("term-output");
+    let calcDays = document.getElementById("calc-days");
+    let dateResults = document.querySelectorAll(".result-date");
+    let value = inp.value;
+    let today = new Date();
+    let futureDate = new Date(today.getTime() + value * 24 * 60 * 60 * 1000);
+
+    let day = futureDate.getDate();
+    let month = futureDate.getMonth() + 1; // Месяцы в JavaScript начинаются с 0
+    let year = futureDate.getFullYear();
+    if (day < 10) {
+        day = '0' + day;
+    }
+    if (month < 10) {
+        month = '0' + month;
+    }
+    let formattedDate = day + '.' + month + '.' + year;
+
+    let lastDigit = value % 10;
+    let termText;
+    if (value > 10 && value < 20) {
+        termText = "дней";
+    } else if (lastDigit === 1) {
+        termText = "день";
+    } else if (lastDigit >= 2 && lastDigit <= 4) {
+        termText = "дня";
+    } else {
+        termText = "дней";
+    }
+
+    out.textContent = value + " " + termText;
+    calcDays.textContent = value + " " + termText;
+    dateResults.forEach(function (dateResult) {
+        dateResult.textContent = formattedDate;
+    });
+    out.style.left = (inp.value - inp.min) / (inp.max - inp.min) * 100 + "%";
+}
+
+document.getElementById("term-input").addEventListener('input', updateTerm);
+updateTerm();
+
+
+const questions = document.querySelectorAll('.faq__question');
+  const answers = document.querySelectorAll('.faq__answer');
+
+  questions.forEach(function(question) {
+    question.addEventListener('click', function() {
+      const toggler = this.querySelector('.burger-toggler');
+      const answer = this.nextElementSibling;
+
+      if (answer.classList.contains('opened')) {
+        answer.classList.remove('opened');
+        toggler.classList.remove('active');
+      } else {
+        answers.forEach(function(answer) {
+          answer.classList.remove('opened');
         });
 
-        tip.classList.add('active');
+        answer.classList.add('opened');
 
+        document.querySelectorAll('.burger-toggler').forEach(function(toggler) {
+          toggler.classList.remove('active');
+        });
+
+        toggler.classList.add('active');
+      }
     });
-});
+  });

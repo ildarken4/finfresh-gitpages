@@ -1,3 +1,6 @@
-<svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="4.5" cy="4" r="4" fill="#028E7F"/>
+<svg width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+  <!-- Белый круг -->
+  <circle cx="10" cy="10" r="10" fill="white" />
+  <!-- Зеленый круг -->
+  <circle cx="10" cy="10" r="4" fill="rgba(2, 142, 127, 1)" />
 </svg>

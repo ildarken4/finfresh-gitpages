@@ -290,4 +290,4 @@ const headerNav = document.querySelector('.header__nav');
 mobNavToggler.addEventListener('click', function() {
     this.classList.toggle('active');
     headerNav.classList.toggle('opened');
-})
+});

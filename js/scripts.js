@@ -4,11 +4,37 @@ const popup = document.querySelector('.popup');
 let modalName;
 let scrollPosition;
 
+function disableBodyScroll() {
+    if (typeof scrollPosition === 'undefined') {
+        // Сохраняем текущую позицию прокрутки только при первом открытии модального окна
+        scrollPosition = window.scrollY || window.pageYOffset;
+
+        // Добавляем класс для блокировки прокрутки
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollPosition}px`;
+    }
+}
+
+function enableBodyScroll() {
+    // Для закрытия модального окна, восстанавливаем прокрутку только если позиция была сохранена
+    if (typeof scrollPosition !== 'undefined') {
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.top = '';
+        window.scrollTo(0, scrollPosition);
+
+        // Сбрасываем сохраненную позицию прокрутки
+        scrollPosition = undefined;
+    }
+}
+
 // Открыть модальное окно
 function openModal(modalName) {
     let modal = document.getElementById(modalName);
     modal.classList.add("active");
-    document.body.style.overflow = "hidden";
+    disableBodyScroll();
+
     // Клик вне .popup
     document.addEventListener('mouseup', function (e) {
         if (!popup.contains(e.target)) {
@@ -38,7 +64,7 @@ function closeModal() {
     modals.forEach(function(item) {
         item.classList.remove("active");
     })
-    document.body.style.overflow = "auto";
+    enableBodyScroll();
 }
 
 // Input маски
@@ -186,108 +212,126 @@ if (sendRatingBtn) {
 
 
 // Для input type=range
-for (let e of document.querySelectorAll('input[type="range"].slider-progress')) {
-    e.style.setProperty('--value', e.value);
-    e.style.setProperty('--min', e.min == '' ? '0' : e.min);
-    e.style.setProperty('--max', e.max == '' ? '100' : e.max);
-    e.addEventListener('input', () => e.style.setProperty('--value', e.value));
-}
 
-// Ползунок - выбор суммы
-function updateSum() {
-    let inp = document.getElementById("sum-input");
-    let out = document.getElementById("sum-output");
-    let sumResults = document.querySelectorAll('.result-sum');
-    let formattedValue = parseFloat(inp.value).toLocaleString('ru-RU');
-    out.textContent = formattedValue + " ₽";
-    sumResults.forEach(function (sumResult) {
-        sumResult.textContent = formattedValue + " ₽";
-    })
-    out.style.left = (inp.value - inp.min) / (inp.max - inp.min) * 100 + "%";
-}
+const inputRange = document.querySelector('input[type="range"]');
 
-document.getElementById("sum-input").addEventListener('input', updateSum);
-updateSum();
+if (inputRange) {
+    console.log('inputRange: ', inputRange);
 
-// Ползунок - выбор кол-ва дней
-function updateTerm() {
-    let inp = document.getElementById("term-input");
-    let out = document.getElementById("term-output");
-    let calcDays = document.getElementById("calc-days");
-    let dateResults = document.querySelectorAll(".result-date");
-    let value = inp.value;
-    let today = new Date();
-    let futureDate = new Date(today.getTime() + value * 24 * 60 * 60 * 1000);
-
-    let day = futureDate.getDate();
-    let month = futureDate.getMonth() + 1; 
-    let year = futureDate.getFullYear().toString().substr(2,2);
-    if (day < 10) {
-        day = '0' + day;
-    }
-    if (month < 10) {
-        month = '0' + month;
-    }
-    let formattedDate = day + '.' + month + '.' + year;
-
-    let lastDigit = value % 10;
-    let termText;
-    if (value > 10 && value < 20) {
-        termText = "дней";
-    } else if (lastDigit === 1) {
-        termText = "день";
-    } else if (lastDigit >= 2 && lastDigit <= 4) {
-        termText = "дня";
-    } else {
-        termText = "дней";
+    for (let e of document.querySelectorAll('input[type="range"].slider-progress')) {
+        e.style.setProperty('--value', e.value);
+        e.style.setProperty('--min', e.min == '' ? '0' : e.min);
+        e.style.setProperty('--max', e.max == '' ? '100' : e.max);
+        e.addEventListener('input', () => e.style.setProperty('--value', e.value));
     }
 
-    out.textContent = value + " " + termText;
-    calcDays.textContent = value + " " + termText;
-    dateResults.forEach(function (dateResult) {
-        dateResult.textContent = formattedDate;
-    });
-    out.style.left = (inp.value - inp.min) / (inp.max - inp.min) * 100 + "%";
+
+    // Ползунок - выбор суммы
+    function updateSum() {
+        let inp = document.getElementById("sum-input");
+        let out = document.getElementById("sum-output");
+        let sumResults = document.querySelectorAll('.result-sum');
+        let formattedValue = parseFloat(inp.value).toLocaleString('ru-RU');
+        out.textContent = formattedValue + " ₽";
+        sumResults.forEach(function (sumResult) {
+            sumResult.textContent = formattedValue + " ₽";
+        })
+        out.style.left = (inp.value - inp.min) / (inp.max - inp.min) * 100 + "%";
+    }
+
+    document.getElementById("sum-input").addEventListener('input', updateSum);
+    updateSum();
+
+
+    // Ползунок - выбор кол-ва дней
+    function updateTerm() {
+        let inp = document.getElementById("term-input");
+        let out = document.getElementById("term-output");
+        let calcDays = document.getElementById("calc-days");
+        let dateResults = document.querySelectorAll(".result-date");
+        let value = inp.value;
+        let today = new Date();
+        let futureDate = new Date(today.getTime() + value * 24 * 60 * 60 * 1000);
+
+        let day = futureDate.getDate();
+        let month = futureDate.getMonth() + 1; 
+        let year = futureDate.getFullYear().toString().substr(2,2);
+        if (day < 10) {
+            day = '0' + day;
+        }
+        if (month < 10) {
+            month = '0' + month;
+        }
+        let formattedDate = day + '.' + month + '.' + year;
+
+        let lastDigit = value % 10;
+        let termText;
+        if (value > 10 && value < 20) {
+            termText = "дней";
+        } else if (lastDigit === 1) {
+            termText = "день";
+        } else if (lastDigit >= 2 && lastDigit <= 4) {
+            termText = "дня";
+        } else {
+            termText = "дней";
+        }
+
+        out.textContent = value + " " + termText;
+        calcDays.textContent = value + " " + termText;
+        dateResults.forEach(function (dateResult) {
+            dateResult.textContent = formattedDate;
+        });
+        out.style.left = (inp.value - inp.min) / (inp.max - inp.min) * 100 + "%";
+    }
+
+    document.getElementById("term-input").addEventListener('input', updateTerm);
+    updateTerm();
 }
 
-document.getElementById("term-input").addEventListener('input', updateTerm);
-updateTerm();
+
+
 
 
 // faq на главной
 const questions = document.querySelectorAll('.faq__question');
-  const answers = document.querySelectorAll('.faq__answer');
+const answers = document.querySelectorAll('.faq__answer');
 
-  questions.forEach(function(question) {
-    question.addEventListener('click', function() {
-      const toggler = this.querySelector('.burger-toggler');
-      const answer = this.nextElementSibling;
-
-      if (answer.classList.contains('opened')) {
-        answer.classList.remove('opened');
-        toggler.classList.remove('active');
-      } else {
-        answers.forEach(function(answer) {
-          answer.classList.remove('opened');
+if (questions) {
+    questions.forEach(function(question) {
+        question.addEventListener('click', function() {
+          const toggler = this.querySelector('.burger-toggler');
+          const answer = this.nextElementSibling;
+    
+          if (answer.classList.contains('opened')) {
+            answer.classList.remove('opened');
+            toggler.classList.remove('active');
+          } else {
+            answers.forEach(function(answer) {
+              answer.classList.remove('opened');
+            });
+    
+            answer.classList.add('opened');
+    
+            document.querySelectorAll('.burger-toggler').forEach(function(toggler) {
+              toggler.classList.remove('active');
+            });
+    
+            toggler.classList.add('active');
+          }
         });
-
-        answer.classList.add('opened');
-
-        document.querySelectorAll('.burger-toggler').forEach(function(toggler) {
-          toggler.classList.remove('active');
-        });
-
-        toggler.classList.add('active');
-      }
     });
-  });
+}
+
 
 // Бургер меню 
 
 const mobNavToggler = document.querySelector('.mob-nav-toggler');
 const headerNav = document.querySelector('.header__nav');
 
-mobNavToggler.addEventListener('click', function() {
-    this.classList.toggle('active');
-    headerNav.classList.toggle('opened');
-});
+if (mobNavToggler) {
+    mobNavToggler.addEventListener('click', function() {
+        this.classList.toggle('active');
+        headerNav.classList.toggle('opened');
+    });
+}
+

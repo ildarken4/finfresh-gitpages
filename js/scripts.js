@@ -209,7 +209,7 @@ function updateSum() {
 document.getElementById("sum-input").addEventListener('input', updateSum);
 updateSum();
 
-// Ползунок - выбор суммы
+// Ползунок - выбор кол-ва дней
 function updateTerm() {
     let inp = document.getElementById("term-input");
     let out = document.getElementById("term-output");
@@ -220,8 +220,8 @@ function updateTerm() {
     let futureDate = new Date(today.getTime() + value * 24 * 60 * 60 * 1000);
 
     let day = futureDate.getDate();
-    let month = futureDate.getMonth() + 1; // Месяцы в JavaScript начинаются с 0
-    let year = futureDate.getFullYear();
+    let month = futureDate.getMonth() + 1; 
+    let year = futureDate.getFullYear().toString().substr(2,2);
     if (day < 10) {
         day = '0' + day;
     }
@@ -254,6 +254,7 @@ document.getElementById("term-input").addEventListener('input', updateTerm);
 updateTerm();
 
 
+// faq на главной
 const questions = document.querySelectorAll('.faq__question');
   const answers = document.querySelectorAll('.faq__answer');
 
@@ -280,3 +281,13 @@ const questions = document.querySelectorAll('.faq__question');
       }
     });
   });
+
+// Бургер меню 
+
+const mobNavToggler = document.querySelector('.mob-nav-toggler');
+const headerNav = document.querySelector('.header__nav');
+
+mobNavToggler.addEventListener('click', function() {
+    this.classList.toggle('active');
+    headerNav.classList.toggle('opened');
+})

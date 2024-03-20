@@ -335,3 +335,16 @@ if (mobNavToggler) {
     });
 }
 
+// сообщение в нижнем углу
+
+const cornerMessage = document.querySelector('.corner-tip__message');
+const closeMessage =  document.querySelector('.close-message');
+
+if(cornerMessage) {
+    setTimeout(() => {
+        cornerMessage.classList.add('show');
+    }, 2000);
+    closeMessage.addEventListener('click', function() {
+        cornerMessage.classList.remove('show')
+    })
+}

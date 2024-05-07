@@ -23,27 +23,23 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
         <link rel="stylesheet" href="./css/styles.css" />
-        <title>Акция</title>
+        <title>Одобрение (подтвердить номер)</title>
     </head>
     
     <body>
         <div class="full-screen d-flex justify-content-center align-items-center">
-            <div class="custom-column mt-140 d-flex justify-content-center bg-lightgray">
-                <button class="btn" onclick="openModal('pdf-modal')">Условия акции</button>
-            </div>
-        </div>
-        </object>
-        <!-- Модалка для просмотра пдф -->
-        <div class="modal" id="pdf-modal">
-            <div class="popup custom-column__big text-center p-48">
-                <div class="close-button d-flex justify-content-end mb-20" onclick="closeModal()">
-                    <img src="images/icons/cancel__modal.svg" alt="закрыть всплывающее окно">
+            <div class="container d-flex align-items-center justify-content-center">
+                <div class="custom-column d-flex flex-column align-items-center">
+                    <div class="approval-image mb-24">
+                        <img src="images/authentification.png" width="284px" alt="изображение лягушка ФинФреш">
+                        <div class="approval-image__message">
+                            <div class="text-green text-600">Осталось совсем немного!</div>
+                        </div>
+                    </div>
+                    <div class="text-21 text-center text-600 mb-24">Двухфакторная аутентификация</div>
+                    <div class="text-center text-500">Через несколько секунд вы будете перемещены
+                        <br>на страницу банка, чтобы подтвердить платеж</div>
                 </div>
-                <object data='sample1.pdf#toolbar=0&navpanes=0&scrollbar=0' width='100%'
-                height='600px'>
-                    <p>Ваш браузер не поддерживает просмотр PDF в данном окне. Вы можете скачать
-                        файл <a href='sample1.pdf' class="text-green">по этой ссылке</a>
-                    </p>
             </div>
         </div>
         <script src="./js/bootstrap.min.js"></script>

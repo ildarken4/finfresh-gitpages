@@ -148,13 +148,11 @@
 
                                     <div class="calculator__card mb-12">
                                         <div class="title">Сумма</div>
-                                        <div class="data"><span class="data__number result-sum">15 000</span>
-                                        </div>
-                                        <div class="range-slider sum-slider"> <span class="range-output"><output name="ageOutputName"
+                                        <div class="range-slider sum-slider">
+                                            <div class="data"><span class="data__number result-sum"><output name="ageOutputName"
                                             id="sum-output"></output></span>
-
-                                            <input
-                                            type="range" class="styled-slider slider-progress sum-input" id="sum-input"
+                                            </div>
+                                            <input type="range" class="styled-slider slider-progress sum-input" id="sum-input"
                                             min="1500" max="30000" value="5000" step="500" />
                                             <div class="range-slider__values"> <span class="minimum-scale">1 500 ₽</span>
  <span class="maximum-scale">30 000 ₽</span>
@@ -164,13 +162,11 @@
                                     </div>
                                     <div class="calculator__card mb-20">
                                         <div class="title">Срок кредитования</div>
-                                        <div class="data"><span class="data__number calc-days">20</span>
-                                        </div>
-                                        <div class="range-slider term-slider"> <span class="range-output"><output name="ageOutputName"
+                                        <div class="range-slider term-slider">
+                                            <div class="data"><span class="data__number calc-days"><output name="ageOutputName"
                                             id="term-output"></output></span>
-
-                                            <input
-                                            type="range" class="styled-slider slider-progress term-input" id="term-input"
+                                            </div>
+                                            <input type="range" class="styled-slider slider-progress term-input" id="term-input"
                                             min="5" max="30" value="21" />
                                             <div class="range-slider__values"> <span class="minimum-scale">5 дней</span>
  <span class="maximum-scale">30 дней</span>
@@ -306,10 +302,14 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="profile" aria-labelledby="prolongation-tab">
-                                <div class="text-21 text-center text-600 mb-40">Вы можете перенести дату платежа, оплатив только проценты</div class="text-20">
+                                <div class="text-21 text-center text-600 mb-4 mb-md-20">Вы можете перенести дату платежа, оплатив только проценты</div class="text-20">
                                 <div
                                 class="extend-scheme">
-                                    <img src="images/extend.svg" width="100%" alt="схема переноса платежа">
+                                    <picture>
+                                        <source media="(min-width: 992px)" srcset="images/extend.svg">
+                                            <source media="(max-width: 991px)" srcset="images/extend-devices.svg">
+                                                <img src="images/extend.svg" alt="схема переноса платежа">
+                                    </picture>
                             </div>
                         </div>
                     </div>

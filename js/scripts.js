@@ -882,8 +882,8 @@ function swiperCard() {
             },
             breakpoints: {
                 576: {
-                slidesPerView: 1.5,
-                spaceBetween: 20
+                    slidesPerView: 1.5,
+                    spaceBetween: 0
                 }
             }
         });

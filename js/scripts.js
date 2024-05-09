@@ -176,7 +176,11 @@ ratingItems.forEach(function(item, index) {
     item.addEventListener('click', function() {
         lastActiveIndex = index;
         rating = item.getAttribute("data-rate");
-        sendRatingBtn.classList.remove('btn-disabled');
+        
+        if(sendRatingBtn) {
+            sendRatingBtn.classList.remove('btn-disabled');
+        }
+        
         ratingItems.forEach(function(item) {
             item.classList.remove('active');
         });
@@ -898,5 +902,45 @@ if (advantages) {
     window.addEventListener("resize", swiperCard);
 }
 
+// кастомный селект (ЛК и flow)
 
+const customSelects = document.querySelectorAll('.custom-select');
+
+if (customSelects) {
+    customSelects.forEach(function(customSelect) {
+        let customSelectToggler = customSelect.querySelector('.custom-select__head');
+        let customSelectResult = customSelect.querySelector('.custom-select__result');
+        let customSelectOptions = customSelect.querySelectorAll('.custom-option');
+        
+        customSelectToggler.addEventListener('click', function() {
+            this.parentNode.classList.toggle('active')
+        })
+
+        customSelectOptions.forEach(function(customSelectOption) {
+            customSelectOption.addEventListener('click', function() {
+                let customValue = customSelectOption.querySelector('.custom-select__value').textContent;
+                customSelectOptions.forEach(function(item) {
+                    item.removeAttribute('selected');
+                })
+                this.setAttribute('selected', '');
+                customSelectResult.textContent = customValue;
+                customSelect.classList.remove('active');
+                customSelectToggler.classList.add('selected');
+            })
+        })
+    })
+}
  
+
+// скрытие полей личной информации если выбран чекбокс Анонимно на странице feedback.html (Проблемы и предложения)
+
+const anonimous = document.querySelector('#anonimous');
+const personalInfo = document.querySelectorAll('.personal-data');
+
+if (anonimous) {
+    anonimous.addEventListener('click', function() {
+        personalInfo.forEach(function (personal) {
+            personal.classList.toggle('d-none');
+        })
+    })
+}

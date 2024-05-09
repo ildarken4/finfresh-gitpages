@@ -23,7 +23,7 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
         <link rel="stylesheet" href="./css/styles.css" />
-        <title>FinFresh – Главная страница</title>
+        <title>FinFresh – Проблемы и предложения</title>
     </head>
     
     <body>
@@ -118,296 +118,152 @@
                 </div>
             </header>
             <div class="wrapper">
-                <section class="hero">
-                    <div class="container">
+                <section class="loan mb-80">
+                    <div class="container pt-40">
                         <div class="row">
-                            <div class="hero__left col-lg-7">
-                                <div class="">
-                                     <h1 class="text-white">
-                                Первый заём&nbsp;– бесплатно!
-                            </h1>
+                            <div class="account-title mb-30">Проблемы и предложения</div>
+                        </div>
+                        <div class="row">
+                            <div class="account-sections mb-20"> <a href="suggestions.html" class="account-sections__item">
+                            Улучшить сервис
+                        </a>
+ <a href="feedback.html" class="account-sections__item active">
+                            Отзывы
+                        </a>
 
-                                    <div class="hero__info">До 30 000 ₽, до 30 дней — без процентов*</div>
-                                </div>
-                                <div class="hero__image">
-                                    <div class="hero__circle">
-                                        <img src="images/hero__image.png" width="100%" alt="Аватар компании ФинФреш">
-                                    </div>
-                                    <div class="hero__message">
-                                        <div class="text-green text-600 mb-12 mb-sm-8">Привет! Я – Фреш</div> <span class="text-500">Ура! <br> Вместе мы сможем преодолеть любые финансовые
-                                    сложности!</span>
-
-                                    </div>
-                                    <div class="hero__decorative first">Онлайн</div>
-                                    <div class="hero__decorative second">За 10 минут</div>
-                                </div>
                             </div>
-                            <div class="col-lg-5 col-md-12 p-sm-0">
-                                <form class="calculator pt-sm-20" action="">
-                                     <h4 class="text-center mb-16">Какая сумма вам необходима?</h4>
-
-                                    <div class="calculator__card mb-12">
-                                        <div class="title">Сумма</div>
-                                        <div class="range-slider sum-slider">
-                                            <div class="data"><span class="data__number result-sum"><output name="ageOutputName"
-                                            id="sum-output"></output></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="feedback-card">
+                                    <div class="feedback-card__title">Подать обращение</div>
+                                    <p class="text-grey text-16 mb-30">Наша команда постоянно трудится над&nbsp;тем, чтобы&nbsp;вам&nbsp;было
+                                        удобно, легко и&nbsp;приятно работать с&nbsp;нами. Вы&nbsp;можете направить
+                                        обращение, запрос попадёт на&nbsp;контроль руководству компании. Мы&nbsp;сделаем
+                                        всё&nbsp;возможное, чтобы&nbsp;решить возникший вопрос и&nbsp;постараемся
+                                        максимально быстро исправить ситуацию, чтобы&nbsp;оставаться лучшими для&nbsp;Вас!</p>
+                                    <div
+                                    class="feedback-steps mb-30">
+                                        <div class="feedback-step">
+                                            <div class="mr-10">
+                                                <div class="feedback-step__number">1</div>
+                                                <div class="feedback-step__separator"></div>
                                             </div>
-                                            <input type="range" class="styled-slider slider-progress sum-input" id="sum-input"
-                                            min="1500" max="30000" value="5000" step="500" />
-                                            <div class="range-slider__values"> <span class="minimum-scale">1 500 ₽</span>
- <span class="maximum-scale">30 000 ₽</span>
-
+                                            <div class="feedback-step__text">Заполните нашу форму и дождитесь решения по вашему обращению</div>
+                                        </div>
+                                        <div class="feedback-step">
+                                            <div class="mr-10">
+                                                <div class="feedback-step__number">2</div>
+                                                <div class="feedback-step__separator"></div>
+                                            </div>
+                                            <div class="feedback-step__text">Мы рассмотрим Ваше заявление совместно с руководством компании и отделом
+                                                поддержки клиентов</div>
+                                        </div>
+                                        <div class="feedback-step">
+                                            <div class="feedback-step__number mr-10">3</div>
+                                            <div class="feedback-step__text">На Вашу электронную почту будет предоставлен ответ в течение 3 рабочих
+                                                дней</div>
+                                        </div>
+                                </div>
+                                <div class="feedback-card__title">Оставить обращение</div>
+                                <form action="">
+                                    <div class="form-item mb-16 personal-data">
+                                        <div class="form-input">
+                                            <input type="text" id="feedback-name" placeholder="ФИО">
+                                        </div>
+                                    </div>
+                                    <div class="form-item mb-16 personal-data">
+                                        <div class="form-input">
+                                            <input type="tel" id="feedback-phone" placeholder="+7">
+                                        </div>
+                                    </div>
+                                    <div class="form-item mb-16 personal-data">
+                                        <div class="form-input">
+                                            <input type="email" id="feedback-email" placeholder="Адрес электронной почты">
+                                        </div>
+                                    </div>
+                                    <div class="form-item mb-16">
+                                        <div class="custom-select">
+                                            <div class="custom-select__head">
+                                                <div class="custom-select__result">Выберите тему обращения</div>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12"
+                                                height="9" viewBox="0 0 12 9" fill="none">
+                                                    <path d="M6 9L0.803847 -2.51247e-08L11.1962 8.834e-07L6 9Z" fill="#A3A3A3"
+                                                    />
+                                                </svg>
+                                            </div>
+                                            <div class="custom-select__options">
+                                                <div class="custom-option" selected>
+                                                    <div class="custom-select__value">Займ</div>
+                                                </div>
+                                                <div class="custom-option">
+                                                    <div class="custom-select__value">Работа сервиса</div>
+                                                </div>
+                                                <div class="custom-option">
+                                                    <div class="custom-select__value">Закрытие договора</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="calculator__card mb-20">
-                                        <div class="title">Срок кредитования</div>
-                                        <div class="range-slider term-slider">
-                                            <div class="data"><span class="data__number calc-days"><output name="ageOutputName"
-                                            id="term-output"></output></span>
-                                            </div>
-                                            <input type="range" class="styled-slider slider-progress term-input" id="term-input"
-                                            min="5" max="30" value="21" />
-                                            <div class="range-slider__values"> <span class="minimum-scale">5 дней</span>
- <span class="maximum-scale">30 дней</span>
-
-                                            </div>
+                                    <div class="form-item mb-16">
+                                        <div class="form-input">
+                                            <textarea name="" id="" placeholder="Напишите свой отзыв" rows="10"></textarea>
                                         </div>
                                     </div>
-                                    <div class="calculator-result mb-12">
-                                        <div class="result-top d-flex gap-40 gap-sm-20">
-                                            <div class="result-item"> <span class="mb-8">Вы берете:</span>
-
-                                                <div class="result-number result-sum">15 000 ₽</div>
-                                            </div>
-                                            <div class="result-item"> <span class="mb-8">Включительно до:</span>
-
-                                                <div class="result-number result-date">12.09.23</div>
-                                            </div>
-                                        </div>
-                                        <div class="mt-20"> <span>Вы возвращаете:</span>
-
-                                            <div class="result-number d-flex align-items-center mt-4 mb-4">
-                                                <div class="result-total mr-8">15 000 ₽</div>
-                                                <div class="result-percent">0%</div>
-                                            </div> <span class="text-12">Если погасите платеж до <span
-                                            class="result-date">12.09.23</span> </span>
+                                    <div class="form-item mb-16 personal-data">
+                                        <div class="form-input">
+                                            <input type="text" id="feedback-city" placeholder="Город">
                                         </div>
                                     </div>
-                                    <button class="btn bg-green calculator-submit">Получить льготный период</button>
+                                    <div class="form-input mb-20">
+                                        <label for="anonimous">
+                                            <input type="checkbox" id="anonimous"> <span class="custom-checkbox"></span>
+Анонимно</label>
+                                    </div>
+                                    <div class="form-item mb-20">
+                                        <div class="form-input">
+                                            <label for="new-photo">
+                                                <input type="file" id="new-photo" multiple name="new-photo">
+                                                <div class="custom-file-input">
+                                                    <p class="mb-16">Перетащите сюда файлы или загрузите их по кнопке ниже. Форматы: png, jpeg.
+                                                        Размер – не более 5 мб</p>
+                                                    <div class="choose-file">Выбрать файл</div>
+                                                    <div class="loaded-files"></div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="btn bg-green">Отправить</div>
                                 </form>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <section class="learn pt-60 pb-60">
-                    <div class="container tabs">
-                        <div class="row">
-                             <h2 class="section-subtitle">Как пользоваться</h2>
-
-                        </div>
-                        <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="get-tab">Получить</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="pay-tab">Погасить</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="prolongation-tab">Продлить</button>
-                            </li>
-                        </ul>
-                        <div class="tab-content pt-40" id="myTabContent">
-                            <div class="tab-pane fade show active" id="get" aria-labelledby="get-tab">
-                                <div class="row justify-content-between mb-80">
-                                    <div class="col-lg-4 col-md-4 mb-md-40">
-                                        <div class="learn__card">
-                                            <div class="learn__image mb-16 bg-green d-flex align-items-center justify-content-center">
-                                                <img src="images/icons/monitor.svg" alt="иконка монитор">
-                                            </div>
-                                             <h4>Оформляете заявку на&nbsp;сайте</h4>
-
-                                            <div class="learn__text text-grey text-500">нужен только паспорт</div>
+                        <div class="col-lg-6">
+                            <div class="feedback-tip">
+                                <div class="corner-tip">
+                                    <div class="position-relative">
+                                        <div class="corner-tip__image">
+                                            <img src="images/bonus-message.png" width="100%" height="100%" alt="ФинФреш">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 mb-md-40">
-                                        <div class="learn__card">
-                                            <div class="learn__image mb-16 bg-green d-flex align-items-center justify-content-center">
-                                                <img src="images/icons/sand_clock.svg" alt="иконка песочные часы">
+                                        <div class="corner-tip__message">
+                                            <div class="corner-tip__close close-message mb-10">
+                                                <img src="images/icons/cancel.svg" alt="закрыть сообщение">
                                             </div>
-                                             <h4>Дожидаетесь одобрения
-                                        заявки</h4>
+                                            <div class="corner-tip__title mb-10">Это Фреш! Я могу помочь получить приятный бонус</div>
+                                            <div class="corner-tip__text text-500">Мы хотим улучшать нашу систему вместе с Вами. Если вы столкнулись с неудобствами
+                                                нашего сервиса и готовы предоставить варианты решения проблемы, получите
+                                                бонус от компании — <span class="text-green text-600">cписание процентов по вашему
+                                                займу.</span>
 
-                                            <div class="learn__text text-grey text-500">не дольше 10 минут</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 mb-md-40">
-                                        <div class="learn__card">
-                                            <div class="learn__image mb-16 bg-green d-flex align-items-center justify-content-center">
-                                                <img src="images/icons/money.svg" alt="иконка деньги">
                                             </div>
-                                             <h4>Получаете деньги на&nbsp;карту или счет</h4>
-
-                                            <div class="learn__text text-grey text-500">выбранным способом</div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="d-flex justify-content-center">
-                                    <div class="mr-32 mr-sm-10">
-                                        <img src="images/footer/cards-visa.svg" alt="карта виза">
-                                    </div>
-                                    <div class="mr-32 mr-sm-10">
-                                        <img src="images/footer/cards-mastercard.svg" alt="карта мастеркард">
-                                    </div>
-                                    <div class="mr-32 mr-sm-10">
-                                        <img src="images/footer/cards-maestro.svg" alt="карта маэстро">
-                                    </div>
-                                    <div class="">
-                                        <img src="images/footer/cards-mir.svg" alt="карта мир">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="profile" aria-labelledby="pay-tab">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 mb-md-40">
-                                        <div class="learn__card">
-                                            <div class="learn__image mb-16 bg-green d-flex align-items-center justify-content-center">
-                                                <img src="images/icons/account-enter.svg" alt="вход">
-                                            </div>
-                                             <h4>В личном кабинете</h4>
-
-                                            <div class="learn__text text-grey text-500">картами Visa, Mastercard, Мир</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 mb-md-40">
-                                        <div class="learn__card">
-                                            <div class="learn__image mb-16 bg-green d-flex align-items-center justify-content-center">
-                                                <img src="images/icons/bank.svg" alt="банк">
-                                            </div>
-                                             <h4>Банковский перевод</h4>
-
-                                            <div class="learn__text text-grey text-500">из любого удобного банка</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 mb-md-40">
-                                        <div class="learn__card">
-                                            <div class="learn__image mb-16 bg-green d-flex align-items-center justify-content-center">
-                                                <img src="images/icons/post-office.svg" alt="почтовый офис">
-                                            </div>
-                                             <h4>Почта России</h4>
-
-                                            <div class="learn__text text-grey text-500">наличными в отделениях Почты России без комиссии</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="profile" aria-labelledby="prolongation-tab">
-                                <div class="text-21 text-center text-600 mb-4 mb-md-20">Вы можете перенести дату платежа, оплатив только проценты</div class="text-20">
-                                <div
-                                class="extend-scheme">
-                                    <picture>
-                                        <source media="(min-width: 992px)" srcset="images/extend.svg">
-                                            <source media="(max-width: 991px)" srcset="images/extend-devices.svg">
-                                                <img src="images/extend.svg" alt="схема переноса платежа">
-                                    </picture>
                             </div>
                         </div>
                     </div>
             </div>
             </section>
-            <section class="mb-140">
-                <div class="container pt-40">
-                    <div class="row">
-                         <h2 class="section-subtitle">Преимущества FinFresh</h2>
-
-                    </div>
-                    <div class="advantages-slider swiper-container">
-                        <div class="advantages swiper-wrapper">
-                            <div class="advantage swiper-slide">
-                                <div class="advantage__image">
-                                    <img src="images/icons/advantage__1.svg" width="100%" alt="">
-                                </div>
-                                <div class="advantage__text">
-                                    <div class="advantage__title">Сайт доступен
-                                        <br>с любого устройства</div>
-                                    <div class="advantage__description">А это значит, что вы можете взять займ, даже не имея под рукой персонального
-                                        компьютера</div>
-                                </div>
-                            </div>
-                            <div class="advantage swiper-slide">
-                                <div class="advantage__image">
-                                    <img src="images/icons/advantage__5.svg" width="100%" alt="">
-                                </div>
-                                <div class="advantage__text">
-                                    <div class="advantage__title">Возможность взять займ в любое время суток</div>
-                                    <div class="advantage__description">позволяет не ждать до утра – вы можете зять займ в любое время дня и ночи</div>
-                                </div>
-                            </div>
-                            <div class="advantage swiper-slide">
-                                <div class="advantage__image">
-                                    <img src="images/icons/advantage__2.svg" width="100%" alt="">
-                                </div>
-                                <div class="advantage__text">
-                                    <div class="advantage__title">Заполнение заявки всего за 10 минут</div>
-                                    <div class="advantage__description">Удобный обновленный интерфейс позволяет легко и быстро пройти заполнение
-                                        заявки в несколько шагов</div>
-                                </div>
-                            </div>
-                            <div class="advantage swiper-slide">
-                                <div class="advantage__image">
-                                    <img src="images/icons/advantage__6.svg" width="100%" alt="">
-                                </div>
-                                <div class="advantage__text">
-                                    <div class="advantage__title">Решение по займу принимается моментально</div>
-                                    <div class="advantage__description">и в автоматическом режиме. Не нужно ждать пока люди сверят информацию</div>
-                                </div>
-                            </div>
-                            <div class="advantage swiper-slide">
-                                <div class="advantage__image">
-                                    <img src="images/icons/advantage__3.svg" width="100%" alt="">
-                                </div>
-                                <div class="advantage__text">
-                                    <div class="advantage__title">Доверие к постоянным клиентам</div>
-                                    <div class="advantage__description">нашего сервиса – максимальная сумма займа увеличивается по мере пользования
-                                        системой</div>
-                                </div>
-                            </div>
-                            <div class="advantage swiper-slide">
-                                <div class="advantage__image">
-                                    <img src="images/icons/advantage__7.svg" width="100%" alt="">
-                                </div>
-                                <div class="advantage__text">
-                                    <div class="advantage__title">Перечисление денег на любой счет</div>
-                                    <div class="advantage__description">первый и любой займ на Visa, Mastercard, Мир</div>
-                                </div>
-                            </div>
-                            <div class="advantage swiper-slide">
-                                <div class="advantage__image">
-                                    <img src="images/icons/advantage__4.svg" width="100%" alt="">
-                                </div>
-                                <div class="advantage__text">
-                                    <div class="advantage__title">Конфиденциальность и сохранность</div>
-                                    <div class="advantage__description">ваших данных гарантируется вам на протяжении всего срока использования
-                                        сервиса</div>
-                                </div>
-                            </div>
-                            <div class="advantage swiper-slide">
-                                <div class="advantage__image">
-                                    <img src="images/icons/advantage__8.svg" width="100%" alt="">
-                                </div>
-                                <div class="advantage__text">
-                                    <div class="advantage__title">Займы доступны по всей России</div>
-                                    <div class="advantage__description">из любого города или населенного пункта. Всё, что вам нужно – доступ к
-                                        интернету</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination for-devices"></div>
-                    </div>
-                </div>
-            </section>
         </div>
-        <!-- Модалки -->
         <div class="modal" id="callback-modal">
             <div class="popup popup-small">
                 <div class="close-button d-flex justify-content-end mb-10">
@@ -460,7 +316,7 @@
                     </div>
                     <div class="form-item mb-32">
                         <div class="form-input required">
-                            <input type="date" id="reg-date" placeholder="Введите дату рождения" required>
+                            <input type="date" id="reg-date" placeholder="дд.мм.гг" required>
                         </div>
                     </div>
                     <button class="btn js-form-btn bg-green mb-10 btn-disabled" onclick=" event.preventDefault() ;changeModal('contract-modal', 'payment-modal')"><a href="#">Отправить</a>
@@ -726,113 +582,7 @@
                 <button class="btn mb-10 " onclick=" event.preventDefault() ;changeModal('signed-user-modal', 'payment-modal')">Внести платеж</button>
             </div>
         </div>
-        <footer class="footer">
-            <div class="container">
-                <div class="row footer-top">
-                    <div class="col-lg-4 col-md-12 mb-md-40"> <a href="#" class="footer__logo mb-40">
-                    <img src="images/footer_logo.svg" alt="логотип ФинФреш">
-                </a>
-
-                        <p>FinFresh— простой, удобный и быстрый сервис онлайн-займов. Создан для
-                            тех, кто ценит свое время. Работаем 24/7 по всей территории РФ.</p>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 offset-lg-1 mb-sm-20">
-                        <div class="footer-menu">
-                             <h5>Быстрые ссылки</h5>
-
-                            <ul>
-                                <li> <a href="">
-                                Как получить
-                            </a>
-
-                                </li>
-                                <li> <a href="">
-                                Как погасить
-                            </a>
-
-                                </li>
-                                <li> <a href="">
-                                Правовая информация
-                            </a>
-
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 offset-lg-1">
-                        <div class="footer-menu">
-                             <h5>Связь с нами</h5>
-
-                            <ul>
-                                <li> <a href="tel:88005555555">
-                                <img src="images/icons/call.svg" alt="">
-                                8 800 555 55 55
-                            </a>
-
-                                </li>
-                                <li>Клиентский сервис <a href="mailto:doc@fin-fresh.ru">
-                                doc@fin-fresh.ru
-                            </a>
-
-                                </li>
-                                <li> <a href="">
-                                Шаблоны заявлений
-                            </a>
-
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="row footer-bottom">
-                    <div class="col-lg-6 mb-md-40">
-                        <div class="footer-info text-white text-14 text-500">
-                            <p class="mb-20">Полное наименование:
-                                <br>Общество с ограниченной ответственностью Микрокредитная компания «Финфреш»
-                                (ООО МКК «Финфреш»)
-                                <br>ИНН 9724097843
-                                <br>ОГРН 1227700562517</p>
-                            <p class="mb-20">Регистрационный номер записи в государственном реестре микрофинансовых
-                                организаций 2203045009933.
-                                <br>Дата внесения 5.15.2022 г.</p>
-                            <p class="mb-20">Юридический адрес ООО МКК "Финфреш":
-                                <br>115230, Г. МОСКВА, ВН.ТЕР.Г. МУНИЦИПАЛЬНЫЙ ОКРУГ НАГАТИНО-САДОВНИКИ, ПР.
-                                ХЛЕБОЗАВОДСКИЙ, Д. 7, СТР. 9, ПОМЕЩ. 33/Н, КОМНАТА 8 ОФИС 511</p>
-                            <p class="mb-20">Почтовый и фактический адрес ООО МКК "Финфреш":
-                                <br>115230, Г. МОСКВА, ВН.ТЕР.Г. МУНИЦИПАЛЬНЫЙ ОКРУГ НАГАТИНО-САДОВНИКИ, ПР.
-                                ХЛЕБОЗАВОДСКИЙ, Д. 7, СТР. 9, ПОМЕЩ. 33/Н, КОМНАТА 8 ОФИС 511</p>
-                            <p>ООО МКК «Финфреш» не привлекает денежные средства физических лиц, в том
-                                числе индивидуальных предпринимателей, не являющихся учредителями организации.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 offset-lg-1 text-500">
-                        <div class="mb-20"> <a href="https://www.cbr.ru" target="_blank" class="underlined text-500">Официальный сайт Банка России</a>
-
-                        </div>
-                        <div class="mb-20"> <a href="https://www.cbr.ru/microfinance/registry" target="_blank" class="underlined text-500">Реестры субъектов рынка микрофинансирования</a>
-
-                        </div>
-                        <div class="mb-20"> <a href="https://www.cbr.ru/reception" target="_blank" class="underlined text-500">Интернет-приемная Банка России</a>
-
-                        </div>
-                        <div class="mb-20 text-white text-14">Потребители финансовых услуг имеют право направить обращение финансовому
-                            уполномоченному
-                            <br>119017, г. Москва, Старомонетный пер., дом 3
-                            <br>8 (800) 200-00-10
-                            <br> <a href="https://finombudsman.ru" class="mt-4">https://finombudsman.ru</a>
-
-                        </div>
-                        <div class="mfa-logo text-white text-14">
-                            <img src="images/footer/MFA.png" width="100%" alt="логотип микрофинансовый альянс">
-                            <p class="mt-8">Член СРО с 10.02.2023 г.
-                                <br>125367 г. Москва Полесский проезд 16 Стр.1, офис 308</p> <a href="https://alliance-mfo.ru">https://alliance-mfo.ru</a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <script src="./js/swiper-bundle.min.js"></script>
+        <footer></footer>
         <script src="./js/inputmask.js"></script>
         <script src="./js/scripts.js"></script>
         </div>
